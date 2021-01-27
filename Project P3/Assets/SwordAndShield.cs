@@ -14,6 +14,15 @@ public class SwordAndShield : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(1) == true) //  (1) rechter muis knop = shield
+        {
+            GetComponent<PlayerMovement>().shieldDecreaseSpeed = true;
+        }
+        if (Input.GetMouseButtonDown(1) == false)
+        {
+            GetComponent<PlayerMovement>().shieldDecreaseSpeed = false;
+        }
+
         if (Input.GetButton("Fire2"))
         {
             //insert shield code

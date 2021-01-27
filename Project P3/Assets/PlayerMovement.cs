@@ -15,9 +15,22 @@ public class PlayerMovement : MonoBehaviour
     public int turnSpeed;
     public Vector3 turning;
 
+    public bool shieldDecreaseSpeed;
+    public int[] shieldSpeedNumber;
+
     // Update is called once per frame
     void Update()
     {
+        if(shieldDecreaseSpeed == true)
+        {
+            moveSpeed = shieldSpeedNumber[0];
+        }
+        if(shieldDecreaseSpeed == false)
+        {
+            moveSpeed = shieldSpeedNumber[1];
+        }
+
+
         if (Input.GetButtonDown("Jump"))
         {
             if (canJump == true)
@@ -26,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
                 canJump = false;
             }
         }
+
         cam = Input.GetAxis("Mouse X");
         turning.y = cam * turnSpeed;
         GetComponent<Transform>().Rotate(turning * Time.deltaTime);

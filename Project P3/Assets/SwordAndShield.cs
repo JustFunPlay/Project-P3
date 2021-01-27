@@ -24,7 +24,7 @@ public class SwordAndShield : MonoBehaviour
             {
                 if (Physics.Raycast(transform.position, transform.forward, out hit, 2.5f))
                 {
-                    hit.collider.gameObject.GetComponent<MobHitPoints>().hp -= swordDamage;
+                    hit.collider.gameObject.GetComponent<MobHitPoints>().DoDamage(swordDamage);
                 }
                 swingTime = swingSpeed;
             }

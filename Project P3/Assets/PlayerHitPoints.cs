@@ -8,32 +8,26 @@ public class PlayerHitPoints : MonoBehaviour
     public int damageTaken;
     public float invisFrames;
     public float invisTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (invisFrames <= 0)
-        {
-            if (damageTaken > 0)
-            {
-                hp -= damageTaken;
-                invisFrames = invisTime;
-            }
-        }
-        damageTaken = 0;
         if (invisFrames > 0)
         {
             invisFrames -= Time.deltaTime;
         }
+    }
 
+    public void DoDamage(int damageTodo)
+    {
+        if (invisFrames <= 0)
+        {
+            hp -= damageTodo;
+            invisFrames = invisTime;
+        }
         if (hp <= 0)
         {
-            print("game over");
+            print("Game Over");
         }
     }
 }

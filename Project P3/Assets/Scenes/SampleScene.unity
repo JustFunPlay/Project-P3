@@ -552,7 +552,8 @@ MonoBehaviour:
   swordDamage: 3
   swingTime: 0
   swingSpeed: 1
-  shieldSlow: 0
+  player: {fileID: 1549688788}
+  shieldSlow: 4
 --- !u!1 &971397324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1025,7 @@ MonoBehaviour:
   canJump: 1
   x: 0
   z: 0
+  sprintSpeed: 1.5
   cam: 0
   turnSpeed: 500
   turning: {x: 0, y: 0, z: 0}

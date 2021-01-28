@@ -9,20 +9,24 @@ public class SwordAndShield : MonoBehaviour
     public float swingTime;
     public float swingSpeed;
 
-    public float shieldSlow;
+    public GameObject player;
+    public int shieldSlow;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) == true) //  (1) rechter muis knop = shield
+        if  (Input.GetButtonDown("Fire2"))
         {
-            GetComponent<PlayerMovement>().shieldDecreaseSpeed = true;
+            player.GetComponent<PlayerMovement>().moveSpeed -= shieldSlow;
+            player.GetComponent<PlayerMovement>().sprintSpeed = 1;
+            //schild gaat naar voren
         }
-        if (Input.GetMouseButtonDown(1) == false)
+        if (Input.GetButtonUp("Fire2"))
         {
-            GetComponent<PlayerMovement>().shieldDecreaseSpeed = false;
+            player.GetComponent<PlayerMovement>().moveSpeed += shieldSlow;
+            player.GetComponent<PlayerMovement>().sprintSpeed = 1.5f;
+            //schild gaat terug naar normaal
         }
-
         if (Input.GetButton("Fire2"))
         {
             //insert shield code

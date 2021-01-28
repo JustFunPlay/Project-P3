@@ -10,28 +10,16 @@ public class PlayerMovement : MonoBehaviour
     public bool canJump;
     public float x;
     public float z;
+    public float sprintSpeed;
 
     public float cam;
     public int turnSpeed;
     public Vector3 turning;
 
-    public bool shieldDecreaseSpeed;
-    public int[] shieldSpeedNumber;
-
     // Update is called once per frame
     void Update()
     {
-        if(shieldDecreaseSpeed == true)
-        {
-            moveSpeed = shieldSpeedNumber[0];
-        }
-        if(shieldDecreaseSpeed == false)
-        {
-            moveSpeed = shieldSpeedNumber[1];
-        }
-
-
-        if (Input.GetButtonDown("Jump"))
+       if (Input.GetButtonDown("Jump"))
         {
             if (canJump == true)
             {
@@ -51,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetButton("Sprint"))
             {
-                move.z = x * moveSpeed * 1.5f;
+                move.z = x * moveSpeed * sprintSpeed;
             }
             else
             {

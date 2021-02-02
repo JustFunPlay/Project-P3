@@ -37,7 +37,7 @@ public class SwordAndShield : MonoBehaviour
             player.GetComponent<PlayerMovement>().moveSpeed += shieldSlow;
             player.GetComponent<PlayerMovement>().sprintSpeed = 1.5f;
             toBlock = false;
-            blockTime = 0.3f;
+            blockTime = 0.3f - blockTime;
         }
         if (Input.GetButton("Fire2"))
         {
@@ -57,7 +57,7 @@ public class SwordAndShield : MonoBehaviour
                 }
             }
         }
-        if (swingTime > 0)
+        if (swingTime >= 0)
         {
             if (swingTime > 0.8f * swingSpeed)
             {
@@ -76,7 +76,7 @@ public class SwordAndShield : MonoBehaviour
             sword.transform.localPosition = swingMoveNormal;
             //sword.transform.localRotation = swingRotateNormal;
         }
-        if (blockTime > 0)
+        if (blockTime >= 0)
         {
             if (toBlock == true)
             {

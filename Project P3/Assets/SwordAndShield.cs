@@ -12,7 +12,7 @@ public class SwordAndShield : MonoBehaviour
     public Vector3 swingMove;
     public Vector3 swingRotate;
     public Vector3 swingMoveNormal;
-    public Vector3 swingRotateNormal;
+    public Quaternion swingRotateNormal;
 
     public GameObject player;
     public GameObject shield;
@@ -22,6 +22,13 @@ public class SwordAndShield : MonoBehaviour
     public Vector3 blockRotate;
     public bool toBlock;
 
+    private void Start()
+    {
+        swingMoveNormal = sword.transform.localPosition;
+        swingRotateNormal = sword.transform.localRotation;
+        StartCoroutine(SwordAttack());
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +37,7 @@ public class SwordAndShield : MonoBehaviour
             player.GetComponent<PlayerMovement>().moveSpeed -= shieldSlow;
             player.GetComponent<PlayerMovement>().sprintSpeed = 1;
             toBlock = true;
-            blockTime = 0.3f;
+            blockTime = 0.3f - blockTime;
         }
         if (Input.GetButtonUp("Fire2"))
         {
@@ -59,7 +66,7 @@ public class SwordAndShield : MonoBehaviour
         }
         if (swingTime >= 0)
         {
-            if (swingTime > 0.8f * swingSpeed)
+            if (swingTime >= 0.8f * swingSpeed)
             {
                 sword.transform.Translate(4 * swingMove * Time.deltaTime);
                 sword.transform.Rotate(4 * swingRotate * Time.deltaTime);
@@ -89,6 +96,15 @@ public class SwordAndShield : MonoBehaviour
                 shield.transform.Rotate(-blockRotate * Time.deltaTime);
             }
             blockTime -= Time.deltaTime;
+        }
+    }
+
+    public IEnumerator SwordAttack()
+    {
+        for (float f = 0; f < 1; f += Time.deltaTime)
+        {
+            sword.transform.Rotate(swingRotate * Time.deltaTime);
+            yield return null;
         }
     }
 }

@@ -13,6 +13,7 @@ public class SwordAndShield : MonoBehaviour
     public Vector3 swingRotate;
     public Vector3 swingMoveNormal;
     public Quaternion swingRotateNormal;
+    public bool canAttack = true;
 
     public GameObject player;
     public GameObject shield;
@@ -26,7 +27,7 @@ public class SwordAndShield : MonoBehaviour
     {
         swingMoveNormal = sword.transform.localPosition;
         swingRotateNormal = sword.transform.localRotation;
-        StartCoroutine(SwordAttack());
+        //StartCoroutine(SwordAttack());
     }
 
     // Update is called once per frame
@@ -50,9 +51,9 @@ public class SwordAndShield : MonoBehaviour
         {
             //insert shield code
         }
-        else if (Input.GetButton("Fire1"))
+        else if (Input.GetButtonDown("Fire1"))
         {
-            if (swingTime <= 0)
+            if (canAttack == true)
             {
                 if (blockTime <= 0)
                 {
@@ -60,29 +61,29 @@ public class SwordAndShield : MonoBehaviour
                     {
                         hit.collider.gameObject.GetComponent<MobHitPoints>().DoDamage(swordDamage);
                     }
-                    swingTime = swingSpeed;
+                    StartCoroutine(SwordAttack());
                 }
             }
         }
-        if (swingTime >= 0)
-        {
-            if (swingTime >= 0.8f * swingSpeed)
-            {
-                sword.transform.Translate(4 * swingMove * Time.deltaTime);
-                sword.transform.Rotate(4 * swingRotate * Time.deltaTime);
-            }
-            else
-            {
-                sword.transform.Translate(- swingMove * Time.deltaTime);
-                sword.transform.Rotate(- swingRotate * Time.deltaTime);
-            }
-            swingTime -= Time.deltaTime;
-        }
-        else
-        {
-            sword.transform.localPosition = swingMoveNormal;
-            //sword.transform.localRotation = swingRotateNormal;
-        }
+        //if (swingTime >= 0)
+        //{
+        //   if (swingTime >= 0.8f * swingSpeed)
+        //    {
+        //        sword.transform.Translate(4 * swingMove * Time.deltaTime);
+        //        sword.transform.Rotate(4 * swingRotate * Time.deltaTime);
+        //    }
+        //    else
+        //    {
+        //        sword.transform.Translate(- swingMove * Time.deltaTime);
+        //        sword.transform.Rotate(- swingRotate * Time.deltaTime);
+        //    }
+        //    swingTime -= Time.deltaTime;
+        //}
+        //else
+        //{
+        //    sword.transform.localPosition = swingMoveNormal;
+        //    //sword.transform.localRotation = swingRotateNormal;
+        //}
         if (blockTime >= 0)
         {
             if (toBlock == true)
@@ -101,10 +102,19 @@ public class SwordAndShield : MonoBehaviour
 
     public IEnumerator SwordAttack()
     {
-        for (float f = 0; f < 1; f += Time.deltaTime)
+        canAttack = false;
+        for (float f = 0; f < swingSpeed; f += Time.deltaTime)
         {
-            sword.transform.Rotate(swingRotate * Time.deltaTime);
+            if (f < 0.2 * swingSpeed)
+            {
+                sword.transform.Rotate(4 * swingRotate * Time.deltaTime);
+            }
+            else
+            {
+                sword.transform.Rotate(-swingRotate * Time.deltaTime);
+            }
             yield return null;
         }
+        canAttack = true;
     }
 }

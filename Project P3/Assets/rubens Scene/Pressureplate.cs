@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pressureplate : MonoBehaviour
 {
     public GameObject platform;
+    public bool pressureCheck;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class Pressureplate : MonoBehaviour
         else if(col.collider.gameObject.tag == "weight")
         {
             platform.SetActive(true);
+            pressureCheck = true;
         }
     }
     private void OnCollisionExit(Collision col)
@@ -33,10 +35,11 @@ public class Pressureplate : MonoBehaviour
         if(col.collider.gameObject.tag == "weight")
         {
             platform.SetActive(false);
+            pressureCheck = false;
         }
         else if(col.collider.gameObject.name == "Player")
         {
-            if (col.collider.gameObject.tag == "weight" == true)
+            if (pressureCheck == false)
             {
                 platform.SetActive(false);
             }

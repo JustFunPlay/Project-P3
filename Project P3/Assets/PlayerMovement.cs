@@ -70,5 +70,6 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = true;
         }
+
     }
 }

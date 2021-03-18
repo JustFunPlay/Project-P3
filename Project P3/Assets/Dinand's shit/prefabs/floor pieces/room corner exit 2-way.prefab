@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 770809725803563538}
   - component: {fileID: 3266939409498439384}
   - component: {fileID: 1545790732136043604}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: room corner exit 2-way
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4403865993449768375
 Transform:

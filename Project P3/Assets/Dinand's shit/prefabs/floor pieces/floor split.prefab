@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7357370342086719}
   - component: {fileID: 2881974134314134773}
   - component: {fileID: 2295591552770623097}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: floor split
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4014388318249129882
 Transform:

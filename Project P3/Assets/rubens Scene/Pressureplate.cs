@@ -10,14 +10,9 @@ public class Pressureplate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        platform.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnCollisionEnter(Collision col)
     {
         if(col.collider.gameObject.name == "Player")
@@ -41,7 +36,10 @@ public class Pressureplate : MonoBehaviour
         {
             if (pressureCheck == false)
             {
-                platform.SetActive(false);
+                
+                
+                    platform.SetActive(false);
+              
             }
         }
     }

@@ -70,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = true;
         }
-
+        if (collision.collider.tag == "weight")
+        {
+            canJump = true;
+        }
     }
 }

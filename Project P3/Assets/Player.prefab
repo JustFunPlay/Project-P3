@@ -126,6 +126,8 @@ MonoBehaviour:
   swingMoveNormal: {x: 0.35, y: -0.2, z: 0.5}
   swingRotateNormal: {x: 0, y: 90, z: 0, w: 0}
   canAttack: 1
+  knockBackForce: 500
+  forceMode: 0
   player: {fileID: 6056808333786955738}
   shield: {fileID: 6399459795087158019}
   shieldSlow: 4

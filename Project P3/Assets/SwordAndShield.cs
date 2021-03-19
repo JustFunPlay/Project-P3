@@ -75,7 +75,7 @@ public class SwordAndShield : MonoBehaviour
                             if (rb != null)
                             {
                                 print("5");
-                                rb.AddExplosionForce(knockBackForce, p, 10); 
+                                rb.AddExplosionForce(knockBackForce, p, 10, 5); 
                             }
                         }
                     }

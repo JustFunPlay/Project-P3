@@ -14,6 +14,8 @@ public class SwordAndShield : MonoBehaviour
     public Vector3 swingMoveNormal;
     public Quaternion swingRotateNormal;
     public bool canAttack = true;
+    public float knockBackForce;
+    public ForceMode forceMode;
 
     public GameObject player;
     public GameObject shield;
@@ -53,15 +55,30 @@ public class SwordAndShield : MonoBehaviour
         }
         else if (Input.GetButtonDown("Fire1"))
         {
+            print("0");
             if (canAttack == true)
             {
+                print("1");
                 if (blockTime <= 0)
                 {
-                    if (Physics.Raycast(transform.position, transform.forward, out hit, 2.5f))
-                    {
-                        hit.collider.gameObject.GetComponent<MobHitPoints>().DoDamage(swordDamage);
-                    }
+                    print("2");
                     StartCoroutine(SwordAttack());
+                    if (Physics.Raycast(transform.position, transform.forward, out hit, 4f))
+                    {
+                        print("3");
+                        hit.collider.gameObject.GetComponent<MobHitPoints>().DoDamage(swordDamage);
+                        if (hit.collider.GetComponent<MobHitPoints>().isLarge == false)
+                        {
+                            print("4");
+                            Vector3 p = transform.position;
+                            Rigidbody rb = hit.collider.gameObject.GetComponent<Rigidbody>();
+                            if (rb != null)
+                            {
+                                print("5");
+                                rb.AddExplosionForce(knockBackForce, p, 10); 
+                            }
+                        }
+                    }
                 }
             }
         }

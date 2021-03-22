@@ -24,7 +24,7 @@ public class Arrow : MonoBehaviour
         Rigidbody rb = collision.collider.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.AddExplosionForce(100, p, 4, 50);
+            rb.AddExplosionForce(200, p, 4, 50);
             print("knockback");
         }
         Destroy(gameObject);

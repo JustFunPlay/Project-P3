@@ -2362,7 +2362,7 @@ MonoBehaviour:
   attackRange: 8
   playerInSightRange: 0
   playerInAttackRange: 0
-  arrow: {fileID: 41603260368097805, guid: ac8da11ab0b65ff4c844fce4cb83bb46, type: 3}
+  arrow: {fileID: 421580589310290487, guid: b02f4bb2c174e394eac3e12320ed8fdf, type: 3}
   shootPosition: {fileID: 2106572028}
 --- !u!195 &1137557370
 NavMeshAgent:
@@ -2728,7 +2728,7 @@ PrefabInstance:
     - target: {fileID: 1224020456548339805, guid: f1af207edfa2f634ba9b26700231a111,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16
+      value: 16.1
       objectReference: {fileID: 0}
     - target: {fileID: 1224020456548339805, guid: f1af207edfa2f634ba9b26700231a111,
         type: 3}
@@ -3368,7 +3368,7 @@ PrefabInstance:
     - target: {fileID: 1224020456548339805, guid: f1af207edfa2f634ba9b26700231a111,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16
+      value: 16.1
       objectReference: {fileID: 0}
     - target: {fileID: 1224020456548339805, guid: f1af207edfa2f634ba9b26700231a111,
         type: 3}

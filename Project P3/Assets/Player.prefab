@@ -287,20 +287,6 @@ MonoBehaviour:
   damageTaken: 0
   invisFrames: 0
   invisTime: 0.5
---- !u!64 &1934544701149916676
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399459795087158019}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 9a66ed7ba04f02e4dbc5b60205e5f472, type: 3}
 --- !u!1 &6882195786674616358
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: 9a66ed7ba04f02e4dbc5b60205e5f472,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a66ed7ba04f02e4dbc5b60205e5f472, type: 3}

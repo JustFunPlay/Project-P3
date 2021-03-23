@@ -19,7 +19,7 @@ public class EnemyAIDinand : MobHitPoints
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();

@@ -9,23 +9,26 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //gameObject.GetComponent<Rigidbody>().AddForce(shoot);
+        gameObject.GetComponent<Rigidbody>().AddRelativeForce(shoot);
     }
 
     private void Update()
     {
-        transform.Translate(shoot * Time.deltaTime);
+        //transform.Translate(shoot * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        collision.collider.gameObject.GetComponent<PlayerHitPoints>().DoDamage(damage);
-        Vector3 p = transform.position;
-        Rigidbody rb = collision.collider.GetComponent<Rigidbody>();
-        if (rb != null)
+        if (collision.collider.tag == "Player")
         {
-            rb.AddExplosionForce(200, p, 4, 50);
-            print("knockback");
+            collision.collider.gameObject.GetComponent<PlayerHitPoints>().DoDamage(damage);
+            Vector3 p = transform.position;
+            Rigidbody rb = collision.collider.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(200, p, 4, 50);
+                print("knockback");
+            }
         }
         Destroy(gameObject);
     }

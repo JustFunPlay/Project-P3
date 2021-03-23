@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHitPoints : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerHitPoints : MonoBehaviour
     public int damageTaken;
     public float invisFrames;
     public float invisTime;
+    public Text hpText;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +26,7 @@ public class PlayerHitPoints : MonoBehaviour
         {
             hp -= damageTodo;
             invisFrames = invisTime;
+            hpText.text = hp.ToString();
         }
         if (hp <= 0)
         {

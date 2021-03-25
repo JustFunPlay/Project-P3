@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - weight
   - Wall
+  - DeathTrap
   layers:
   - Default
   - TransparentFX

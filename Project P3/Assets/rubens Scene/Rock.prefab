@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6818618775614690388}
   - component: {fileID: 6818618775614690391}
   - component: {fileID: 6818618775614690390}
+  - component: {fileID: 8539653351938607902}
   m_Layer: 0
   m_Name: Rock
   m_TagString: weight
@@ -110,3 +111,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &8539653351938607902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818618775614690393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8c14e303b732340ad043efe7574005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0
+  jumpHeight: 0
+  move: {x: 0, y: 0, z: 0}
+  canJump: 0
+  x: 0
+  z: 0
+  sprintSpeed: 1.5
+  cam: 0
+  turnSpeed: 0
+  turning: {x: 0, y: 0, z: 0}

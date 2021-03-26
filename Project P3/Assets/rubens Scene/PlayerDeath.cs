@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class PlayerDeath : MonoBehaviour
 {
-
-    // Update is called once per frame
-    void Update()
+    public int damageTrap;
+    public Vector3 teleportLocation;
+    public GameObject teleportWho;
+    //teleport who kan ook als de speler worden gebruikt.
+    public void Start()
     {
-
+        damageTrap = 10;
     }
     private void OnCollisionEnter(Collision col)
     {
-        if(col.collider.gameObject.tag == "DeathTrap")
+        if (col.collider.gameObject.tag == "DeathTrap")
         {
-            print("hello");
+            teleportWho.GetComponent<PlayerHitPoints>().hp -= damageTrap;
+            GotPlayerDamage();
+            transform.position = teleportLocation;
         }
     }
+    public void GotPlayerDamage()
+    {
+            if(teleportWho.GetComponent<PlayerHitPoints>().hp <= -0.1)
+            {
+                Destroy(teleportWho);
+            }
+    } 
 }

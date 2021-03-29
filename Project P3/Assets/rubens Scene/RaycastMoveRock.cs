@@ -14,28 +14,29 @@ public class RaycastMoveRock : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        Physics.Raycast(transform.position, transform.forward, out hit, 100f)
+        Physics.Raycast(transform.position, transform.forward, out hit, 100f);
 
 
 
-            if (Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1"))
+        {
+
+            if (hit.collider.gameObject.tag == "weight")
             {
-
-                if (hit.collider.gameObject.tag == "weight")
+                if (true1 == true)
                 {
-                     if (true1 == true)
-                     {
-                         print("working");
-                         true1 = false;
-                         true2 = true;
-                         hit.rigidbody.gameObject.GetComponent<PlayerMovement>().moveSpeed = 5;
-                     }
+                    print("working");
+                    true1 = false;
+                    true2 = true;
+                    hit.rigidbody.gameObject.GetComponent<PlayerMovement>().moveSpeed = 5;
+                }
             }
 
 
 
-        
-    }  
+
+        }
+    }
 }
 
       

@@ -9,40 +9,35 @@ public class RaycastMoveRock : MonoBehaviour
     public Vector3 extramove;
     public GameObject testObject;
     public Rigidbody Rigidbody;
-    public bool true1;
-    public bool true2;
+    public bool pickingUpObject;
+
     // Start is called before the first frame update
     void Update()
     {
-        Physics.Raycast(transform.position, transform.forward, out hit, 100f);
-
-
-
         if (Input.GetButtonDown("Fire1"))
         {
+            Physics.Raycast(transform.position, transform.forward, out hit, 1.5f);
 
             if (hit.collider.gameObject.tag == "weight")
             {
-                if (true1 == true)
                 {
-                    print("working");
-                    true1 = false;
-                    true2 = true;
                     hit.rigidbody.gameObject.GetComponent<PlayerMovement>().moveSpeed = 5;
+                    pickingUpObject = true;
                 }
-            }
-
-
-
-
+            } 
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            hit.rigidbody.gameObject.GetComponent<PlayerMovement>().moveSpeed = 0;
+            pickingUpObject = false;
         }
     }
 }
 
       
 
-
+// dit was de eerste oplossing die ik gebruikte om de kubus te laten bewegen.
             //if (hit.collider.gameObject.tag == "weight")
            
-                //hit.rigidbody.gameObject.transform.position += extramove;
+            //hit.rigidbody.gameObject.transform.position += extramove;
    

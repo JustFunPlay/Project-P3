@@ -7,7 +7,6 @@ public class Pressureplate : MonoBehaviour
     public GameObject platform;
     public bool pressureCheck;
 
-    // Start is called before the first frame update
     void Start()
     {
         platform.SetActive(false);
@@ -36,10 +35,7 @@ public class Pressureplate : MonoBehaviour
         {
             if (pressureCheck == false)
             {
-                
-                
-                    platform.SetActive(false);
-              
+                platform.SetActive(false);
             }
         }
     }

@@ -21,10 +21,8 @@ public class MorePressure : MonoBehaviour
         if(pressurePlateObject.GetComponent<MorePressure>().pressureCheck == true)
         {
             print("hello");
-
         }
     }
-
     private void OnCollisionEnter(Collision col)
     {
         if (col.collider.gameObject.name == "Player")
@@ -42,7 +40,6 @@ public class MorePressure : MonoBehaviour
             {
                 pressureCheck = true;
             }
-            
         }
     }
     private void OnCollisionExit(Collision col)

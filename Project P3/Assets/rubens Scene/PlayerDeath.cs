@@ -17,8 +17,8 @@ public class PlayerDeath : MonoBehaviour
         if (col.collider.gameObject.tag == "DeathTrap")
         {
             teleportWho.GetComponent<PlayerHitPoints>().hp -= damageTrap;
-            GotPlayerDamage();
             transform.position = teleportLocation;
+            GotPlayerDamage();
         }
     }
     public void GotPlayerDamage()
@@ -27,5 +27,6 @@ public class PlayerDeath : MonoBehaviour
             {
                 Destroy(teleportWho);
             }
+        GetComponent<RaycastMoveRock>().hit.rigidbody.gameObject.GetComponent<PlayerMovement>().moveSpeed = 0;
     } 
 }

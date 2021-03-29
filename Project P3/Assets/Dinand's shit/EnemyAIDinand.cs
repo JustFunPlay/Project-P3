@@ -12,6 +12,7 @@ public class EnemyAIDinand : MobHitPoints
     public Vector3 walkpoint;
     bool walkPointSet;
     public float walkPointRange;
+    public float moveDelay;
 
     public float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -31,12 +32,12 @@ public class EnemyAIDinand : MobHitPoints
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Idle();
+        if (!playerInSightRange && !playerInAttackRange) StartCoroutine(Idle());
         else if (playerInSightRange && !playerInAttackRange) Hunt();
         else if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
-    void Idle()
+    IEnumerator Idle()
     {
         if (!walkPointSet) SearchWalkPoint();
 
@@ -46,7 +47,13 @@ public class EnemyAIDinand : MobHitPoints
         Vector3 distanceToWalkPoint = transform.position - walkpoint;
 
         if (distanceToWalkPoint.magnitude < 1)
+        {
+            for (float f = 0; f < moveDelay; f+=Time.deltaTime)
+            {
+                yield return null;
+            }
             walkPointSet = false;
+        }
     }
 
     void SearchWalkPoint()
@@ -67,14 +74,18 @@ public class EnemyAIDinand : MobHitPoints
 
     void AttackPlayer()
     {
+        RaycastHit hit;
         agent.SetDestination(transform.position);
         transform.LookAt(player);
-
-        if (!alreadyAttacked)
+        Physics.Raycast(transform.position, transform.forward, out hit, attackRange);
+        if (hit.collider.gameObject.tag == "Player")
         {
-            Attack();
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            if (!alreadyAttacked)
+            {
+                StartCoroutine(Attack());
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
         }
     }
 
@@ -83,8 +94,8 @@ public class EnemyAIDinand : MobHitPoints
         alreadyAttacked = false;
     }
 
-    public virtual void Attack()
+    public virtual IEnumerator Attack()
     {
-        //attack
+        yield return null;
     }
 }

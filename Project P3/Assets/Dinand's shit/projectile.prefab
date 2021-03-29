@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68444ccf7f17994292bf8846882345b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {x: 0, y: 0, z: 350}
+  shoot: {x: 0, y: 0, z: 500}
   damage: 3
 --- !u!54 &-8304085004160403435
 Rigidbody:

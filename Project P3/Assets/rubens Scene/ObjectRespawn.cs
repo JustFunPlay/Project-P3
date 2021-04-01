@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ObjectRespawn : MonoBehaviour
 {
     public Vector3 teleportLocationAUTO;
     public bool allowTeleport;
-    public GameObject[] objectsToTeleport;
+
+    // voor alleen 1 pressure plate
+    public bool levelComplete;
+    public GameObject canvas;
 
     void Start()
     {
@@ -21,6 +25,11 @@ public class ObjectRespawn : MonoBehaviour
             {
                 transform.position = teleportLocationAUTO;
             }
+        }
+        // dit is alleen voor 1 pressure plate
+        if(levelComplete == true)
+        {
+            canvas.GetComponent<CanvasNumber>().Victory();
         }
     }
 }

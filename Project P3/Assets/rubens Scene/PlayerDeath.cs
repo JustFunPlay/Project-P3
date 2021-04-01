@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
     public int damageTrap;
     public Vector3 teleportLocation;
     public GameObject teleportWho;
+
+    public GameObject canvas;
     //teleport who kan ook als de speler worden gebruikt.
     public void Start()
     {
@@ -28,7 +31,8 @@ public class PlayerDeath : MonoBehaviour
     {
             if(teleportWho.GetComponent<PlayerHitPoints>().hp <= -0.1)
             {
-                Destroy(teleportWho);
+              canvas.GetComponent<CanvasNumber>().Defeat();
+              teleportWho.GetComponent<PlayerMovement>().moveSpeed = 0;
             }
         GetComponent<RaycastMoveRock>().hit.rigidbody.gameObject.GetComponent<PlayerMovement>().moveSpeed = 0;
     } 

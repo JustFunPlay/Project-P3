@@ -18477,7 +18477,7 @@ PrefabInstance:
     - target: {fileID: 6056808333162597752, guid: 3d066567bfb12fa4ca10f085ea0b78cc,
         type: 3}
       propertyPath: swordDamage
-      value: 60
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6056808333786955733, guid: 3d066567bfb12fa4ca10f085ea0b78cc,
         type: 3}

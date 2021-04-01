@@ -8,6 +8,8 @@ TagManager:
   - weight
   - Wall
   - DeathTrap
+  - KeyCube
+  - CubeDoor
   layers:
   - Default
   - TransparentFX

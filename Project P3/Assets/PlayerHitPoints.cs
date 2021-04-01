@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class PlayerHitPoints : MonoBehaviour
 {
     public int hp = 30;
-    public int damageTaken;
     public float invisFrames;
     public float invisTime;
     public Text hpText;
 
-    // Update is called once per frame
     void Update()
     {
         if (invisFrames > 0)

@@ -12,32 +12,29 @@ public class EnemyAIDinand : MobHitPoints
     public Vector3 walkpoint;
     bool walkPointSet;
     public float walkPointRange;
-    public float moveDelay;
 
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
-    // Start is called before the first frame update
     void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) StartCoroutine(Idle());
+        if (!playerInSightRange && !playerInAttackRange) Idle();
         else if (playerInSightRange && !playerInAttackRange) Hunt();
         else if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
-    IEnumerator Idle()
+    void Idle()
     {
         if (!walkPointSet) SearchWalkPoint();
 
@@ -48,10 +45,6 @@ public class EnemyAIDinand : MobHitPoints
 
         if (distanceToWalkPoint.magnitude < 1)
         {
-            for (float f = 0; f < moveDelay; f+=Time.deltaTime)
-            {
-                yield return null;
-            }
             walkPointSet = false;
         }
     }

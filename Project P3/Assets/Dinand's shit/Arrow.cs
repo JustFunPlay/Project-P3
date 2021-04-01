@@ -6,15 +6,9 @@ public class Arrow : MonoBehaviour
 {
     public Vector3 shoot;
     public int damage;
-    // Start is called before the first frame update
     void Start()
     {
         gameObject.GetComponent<Rigidbody>().AddRelativeForce(shoot);
-    }
-
-    private void Update()
-    {
-        //transform.Translate(shoot * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)

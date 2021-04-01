@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHitPoints : MonoBehaviour
 {
@@ -28,7 +29,16 @@ public class PlayerHitPoints : MonoBehaviour
         }
         if (hp <= 0)
         {
-            print("Game Over");
+            SceneManager.LoadScene(0);
         }
+    }
+    public void ReturnToScene()
+    {
+        StartCoroutine(ReturnToSelect());
+    }
+    public IEnumerator ReturnToSelect()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 }

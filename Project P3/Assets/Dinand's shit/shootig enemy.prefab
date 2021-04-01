@@ -320,10 +320,9 @@ MonoBehaviour:
     m_Bits: 512
   walkpoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
-  moveDelay: 2.5
   timeBetweenAttacks: 2
-  sightRange: 2
-  attackRange: 1
+  sightRange: 10
+  attackRange: 5
   playerInSightRange: 0
   playerInAttackRange: 0
   arrow: {fileID: 421580589310290487, guid: b02f4bb2c174e394eac3e12320ed8fdf, type: 3}

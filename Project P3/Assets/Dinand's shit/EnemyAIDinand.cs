@@ -39,7 +39,9 @@ public class EnemyAIDinand : MobHitPoints
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+        {
             agent.SetDestination(walkpoint);
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkpoint;
 

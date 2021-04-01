@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0b026592df33f49afc67febfc7e7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 30
+  hp: 20
   collisionDamage: 2
   isLarge: 0
   agent: {fileID: 4693815159994652218}
@@ -366,9 +366,8 @@ MonoBehaviour:
     m_Bits: 512
   walkpoint: {x: 0, y: 0, z: 0}
   walkPointRange: 6
-  moveDelay: 3
   timeBetweenAttacks: 1.5
-  sightRange: 6
+  sightRange: 7
   attackRange: 2
   playerInSightRange: 0
   playerInAttackRange: 0

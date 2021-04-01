@@ -27,7 +27,13 @@ public class MobHitPoints : MonoBehaviour
         hp -= damageToDo;
         if (hp <= 0)
         {
+            OnDeath();
             Destroy(gameObject);
         }
+    }
+
+    public virtual void OnDeath()
+    {
+        
     }
 }

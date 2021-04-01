@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 664065234204083519}
   - component: {fileID: 3374265421769945589}
   - component: {fileID: 1654664842802666361}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: room corner inner
   m_TagString: Floor
   m_Icon: {fileID: 0}

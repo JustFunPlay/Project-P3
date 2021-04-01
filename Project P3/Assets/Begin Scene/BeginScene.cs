@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BeginScene : MonoBehaviour
 {
@@ -56,15 +57,15 @@ public class BeginScene : MonoBehaviour
     //Dit is het gedeelte waar als op een knop drukt dat je een een andere Scene gaat.
     public void StartLevel1()
     {
-        Application.LoadLevel("Ruben's Scene");
+        SceneManager.LoadScene(1);
     }
     public void StartLevel2()
     {
-        Application.LoadLevel("Nitish's Scene");
+        SceneManager.LoadScene(2);
     }
     public void StartLevel3()
     {
-        Application.LoadLevel("Dinand's Scene");
+        SceneManager.LoadScene(3);
     }
 
 }

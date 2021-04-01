@@ -10,7 +10,10 @@ public class PlayerDeath : MonoBehaviour
     //teleport who kan ook als de speler worden gebruikt.
     public void Start()
     {
-        damageTrap = 10;
+        if (damageTrap == 0)
+        {
+            damageTrap = 10;
+        }
     }
     private void OnCollisionEnter(Collision col)
     {

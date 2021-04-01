@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Begin Scene.unity
+    guid: 34fe89c416ab1524283c84d0d5335f29
+  - enabled: 1
+    path: Assets/Scenes/Dinand's Scene.unity
+    guid: c54fcf3279331cf48a925732d28ac53e
+  - enabled: 1
+    path: Assets/Scenes/Nitish's Scene.unity
+    guid: 70f78e61d4cd2f640ad571620d4dac4e
+  - enabled: 1
+    path: Assets/Scenes/Ruben's Scene.unity
+    guid: 7f18c615dad51a44b8c4a9a3001022b3
   m_configObjects: {}
